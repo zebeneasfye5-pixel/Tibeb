@@ -1,0 +1,6 @@
+{
+  "name": "ጥንተ ጥበብ - የአቡሻህር፣ የአውደ ነገሥት እና የመጽሐፈ ሲራክ ሙሉ ዕውቀት",
+  "description": "ጥንተ ጥበብ - የአቡሻህር (ባሕረ ሐሳብ የዘመን ቀመር)፣ የአውደ ነገሥት (የኮከብና ጠባይ ማውጫ)፣ የመጽሐፈ ሲራክ እና የመጽሐፈ ሄኖክ ሙሉ ጥበብ ያለ ስህተት በቀላሉ ከመስመር ውጭ (Offline) የሚሰራ ድንቅ መተግበሪያ።",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
