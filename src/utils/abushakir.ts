@@ -291,5 +291,49 @@ export const ABUSHAKIR_TUTORIAL = {
       title: '፭. የ፬ቱ ወቅቶች ክፍፍል (አዕዋዳት)',
       text: 'መፀው (ከመስከረም ፳፮ እስከ ታኅሣሥ ፳፭)፣ በጋ (ከታኅሣሥ ፳፮ እስከ መጋቢት ፳፭)፣ ጸደይ (ከመጋቢት ፳፮ እስከ ሰኔ ፳፭)፣ ክረምት (ከሰኔ ፳፮ እስከ መስከረም ፳፭)። እያንዳንዱ ወቅት ፺፩ (91) ቀናትና ፫ ሰዓት አለው።',
     },
+    {
+      title: '፮. ዐውደ ፀሐይ፣ ዐውደ ቀመር እና ዐውደ ማኅተም',
+      text: 'ዐውደ ፀሐይ በየ ፳፰ (28) ዓመቱ፤ ዐውደ ቀመር በየ ፲፱ (19) ዓመቱ ይሽከረከራሉ። ፳፰ × ፲፱ = ፭፻፴፪ (532) ዓመት ሲሆን ይህም "ዐውደ ማኅተም / ዐውደ ዐቢይ" ይባላል። በየ 532 ዓመቱ ሁሉም የበዓላትና አጽዋማት ቀናት በትክክል ወደነበሩበት ቦታ ይመለሳሉ።',
+    },
+    {
+      title: '፯. ሰዓተ መዓልት ወሌሊት (የቀንና የሌሊት ሰዓታት ልዩነት)',
+      text: 'በአቡሻህር ቀመር መሠረት በኢትዮጵያ ወራት የቀኑና የሌሊቱ ሰዓት ከ ፲ (10) እስከ ፲፬ (14) ሰዓት ይለዋወጣል፤ መስከረም ፩ እና መጋቢት ፩ እኩል (12/12) ይሆናሉ፤ በሰኔ ወር ቀኑ 14 ሰዓት ረዝሞ ሌሊቱ 10 ሰዓት ይሆናል፤ በታኅሣሥ ወር ደግሞ ሌሊቱ 14 ሰዓት ረዝሞ ቀኑ 10 ሰዓት ይሆናል።',
+    },
   ],
 };
+
+// 12 Ethiopian Months Day/Night Hours & Astronomical Signs according to Abushakir
+export const DAY_NIGHT_HOURS = [
+  { month: 'መስከረም', dayHours: 12, nightHours: 12, season: 'መፀው (Equinox)', astronomicalSign: 'ሚዛን (Libra)' },
+  { month: 'ጥቅምት', dayHours: 11, nightHours: 13, season: 'መፀው', astronomicalSign: 'አቅራብ (Scorpio)' },
+  { month: 'ኅዳር', dayHours: 10, nightHours: 14, season: 'መፀው', astronomicalSign: 'ቀውስ (Sagittarius)' },
+  { month: 'ታኅሣሥ', dayHours: 10, nightHours: 14, season: 'በጋ (Winter Solstice)', astronomicalSign: 'ጀዲ (Capricorn)' },
+  { month: 'ጥር', dayHours: 11, nightHours: 13, season: 'በጋ', astronomicalSign: 'ደልው (Aquarius)' },
+  { month: 'የካቲት', dayHours: 12, nightHours: 12, season: 'በጋ', astronomicalSign: 'ሑት (Pisces)' },
+  { month: 'መጋቢት', dayHours: 13, nightHours: 11, season: 'ጸደይ (Spring Equinox)', astronomicalSign: 'ሐመል (Aries)' },
+  { month: 'ሚያዝያ', dayHours: 13, nightHours: 11, season: 'ጸደይ', astronomicalSign: 'ሰውር (Taurus)' },
+  { month: 'ግንቦት', dayHours: 14, nightHours: 10, season: 'ጸደይ', astronomicalSign: 'ጀውዛ (Gemini)' },
+  { month: 'ሰኔ', dayHours: 14, nightHours: 10, season: 'ክረምት (Summer Solstice)', astronomicalSign: 'ሰርጣን (Cancer)' },
+  { month: 'ሐምሌ', dayHours: 13, nightHours: 11, season: 'ክረምት', astronomicalSign: 'አሰድ (Leo)' },
+  { month: 'ነሐሴ', dayHours: 12, nightHours: 12, season: 'ክረምት', astronomicalSign: 'ሰንቡላ (Virgo)' },
+  { month: 'ጳጉሜን', dayHours: 12, nightHours: 12, season: 'መሸጋገሪያ', astronomicalSign: 'ማዕከላዊ ሚዛን' },
+];
+
+/**
+ * Calculates Great Astronomical Cycles of Abushakir
+ */
+export function calculateAbushakirCycles(ameteMihret: number) {
+  const ameteAlem = ameteMihret + 5500;
+  const awdeTsehay = (ameteAlem % 28) || 28; // 1 to 28
+  const awdeQemer = (ameteAlem % 19) || 19; // 1 to 19
+  const awdeMahtem = (ameteAlem % 532) || 532; // 1 to 532
+
+  return {
+    ameteMihret,
+    ameteAlem,
+    awdeTsehay,
+    awdeQemer,
+    awdeMahtem,
+    dayNightHours: DAY_NIGHT_HOURS,
+  };
+}

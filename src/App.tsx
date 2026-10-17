@@ -56,7 +56,7 @@ export default function App() {
                 </span>
               </div>
               <p className="text-[11px] sm:text-xs text-stone-400 truncate max-w-[200px] sm:max-w-md">
-                የአቡሻህር • የአውደ ነገሥት • የሲራክና የሄኖክ • ጥንታዊ ዕፅዋትና አስማተ ዕቀባ
+                አዘጋጅና ገንቢ፡ ዘበነ አስፍዬ • የአቡሻህር • የአውደ ነገሥት • የሲራክና የሄኖክ • ጥንታዊ ዕፅዋትና አስማታት
               </p>
             </div>
           </div>
@@ -190,8 +190,16 @@ export default function App() {
                 የኢትዮጵያ ጥንታዊ የጥበብ፣ የዘመን፣ የፈዋሽ ዕፅዋትና የሥነ-ምግባር አውታር
               </h2>
               <p className="text-sm sm:text-base text-stone-300 leading-relaxed">
-                "ጥንተ ጥበብ" የተዘጋጀው በኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያንና በሀገራችን ጥንታዊ ሊቃውንት ዘንድ ለዘመናት ሲወርድ ሲዋረድ የኖረውን የቀመር፣ የከዋክብት፣ የዕፅዋትና የስነ-ምግባር ዕውቀት ለዘመናችን ትውልድ ያለ ምንም የቃላት፣ የፊደል፣ የአሰራርና የትርጉም ስህተት ሳይሸራረፍ በቀላሉ ለማድረስ ነው።
+                "ጥንተ ጥበብ" በአዘጋጁና ገንቢው <strong>ዘበነ አስፍዬ</strong> የተዘጋጀ ሲሆን፣ በኢትዮጵያ ኦርቶዶክስ ተዋሕዶ ቤተክርስቲያንና በሀገራችን ጥንታዊ ሊቃውንት ዘንድ ለዘመናት ሲወርድ ሲዋረድ የኖረውን የቀመር፣ የከዋክብት፣ የዕፅዋትና የስነ-ምግባር ዕውቀት ለዘመናችን ትውልድ ያለ ምንም የቃላት፣ የፊደል፣ የአሰራርና የትርጉም ስህተት ሳይሸራረፍ በቀላሉ ለማድረስ ነው።
               </p>
+              <div className="pt-2 flex items-center gap-3">
+                <span className="text-xs px-3 py-1 rounded-xl bg-amber-500/20 text-amber-200 font-bold border border-amber-500/30">
+                  አዘጋጅና መካነ ጥበቡን የቀመረው፡ ዘበነ አስፍዬ
+                </span>
+                <span className="text-xs text-stone-400">
+                  የክፍያ ፎልደር በይለፍ ቃል (2026) የተቆለፈ
+                </span>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -239,9 +247,9 @@ export default function App() {
                 <div className="w-9 h-9 rounded-xl bg-amber-500/20 text-amber-400 flex items-center justify-center font-bold text-sm">
                   ፭
                 </div>
-                <h3 className="text-base font-bold text-amber-200">ጥንታዊ ዕፅዋትና አስማተ ዕቀባ</h3>
+                <h3 className="text-base font-bold text-amber-200">ጥንታዊ ዕፅዋትና አስማታት</h3>
                 <p className="text-xs text-stone-300 leading-relaxed">
-                  የዕፀ ሳቤቅ፣ ዕፀ ደብዳቤ፣ ቀበርቾና ሌሎች 12 ፈዋሽ ዕፅዋት አዘገጃጀትና አጠቃቀም፤ እንዲሁም የግርማ ሞገስና የዓይነ ጥላ መከላከያ ቃላት።
+                  የዕፀ ሳቤቅ፣ ዕፀ ደብዳቤ፣ ዕፀ መሰውር፣ ቀበርቾና 14 ፈዋሽ ዕፅዋት፤ እንዲሁም የፈውስና የእስር ድግምቶች ከትንሽ እስከ ትልቅ።
                 </p>
               </div>
 
@@ -276,7 +284,7 @@ export default function App() {
             <span className="w-2 h-2 rounded-full bg-amber-500" />
             <span className="font-bold text-stone-200 font-serif">ጥንተ ጥበብ (Tsinte Tibeb)</span>
             <span>—</span>
-            <span>የኢትዮጵያ ጥንታዊ የጥበብ ቅርሶች ማዕከል</span>
+            <span>አዘጋጅና ገንቢ፡ ዘበነ አስፍዬ (Zebene Asfye)</span>
           </div>
 
           <div className="flex items-center gap-4">
@@ -284,10 +292,10 @@ export default function App() {
               onClick={() => setActiveTab('monetization')}
               className="text-amber-400 hover:text-amber-300 transition font-semibold"
             >
-              ለገንቢው ድጋፍ ያድርጉ (Telebirr / CBE)
+              ለገንቢው (ለዘበነ አስፍዬ) ድጋፍ ያድርጉ (Telebirr / CBE)
             </button>
             <span className="text-stone-700">|</span>
-            <span className="text-stone-400">© ፳፻፲፯ (2025/2026) ሁሉም መብቱ የተጠበቀ ነው።</span>
+            <span className="text-stone-400">© ፳፻፲፯ (2025/2026) ዘበነ አስፍዬ።</span>
           </div>
         </div>
       </footer>

@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { calculateBahireHasab, ABUSHAKIR_TUTORIAL, FIXED_FEASTS } from '../utils/abushakir';
+import { calculateBahireHasab, calculateAbushakirCycles, ABUSHAKIR_TUTORIAL, FIXED_FEASTS } from '../utils/abushakir';
 import {
   Calendar,
   Clock,
@@ -12,6 +12,8 @@ import {
   HelpCircle,
   Layers,
   Compass,
+  Flame,
+  Shield,
 } from 'lucide-react';
 
 export const AbushakirCalc: React.FC = () => {
@@ -269,6 +271,79 @@ export const AbushakirCalc: React.FC = () => {
               <p className="text-xs sm:text-sm text-stone-300 mt-1.5 leading-relaxed">{pr.text}</p>
             </div>
           ))}
+        </div>
+      </div>
+
+      {/* Great Astronomical Cycles of Abushakir */}
+      <div className="rounded-3xl parchment-gold p-6 sm:p-8 border border-amber-500/40 text-stone-100 shadow-xl space-y-4">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-amber-300" />
+          <h3 className="text-lg sm:text-xl font-bold text-amber-100 font-serif">
+            የአቡሻህር ታላላቅ የስነ-ፈለክ ዑደቶች (ዐውደ ፀሐይ፣ ዐውደ ቀመርና ዐውደ ማኅተም)
+          </h3>
+        </div>
+        <p className="text-xs sm:text-sm text-stone-300 leading-relaxed">
+          በአቡሻህር ጥንታዊ የቀመር መጽሐፍ መሠረት ጊዜ በሦስት ታላላቅ ሰማያዊ ዑደቶች ይሽከረከራል፦
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+          <div className="p-4 rounded-2xl bg-stone-950/70 border border-amber-500/30 text-center space-y-1">
+            <Sun className="w-6 h-6 text-amber-400 mx-auto mb-1" />
+            <span className="text-xs text-amber-300 font-bold block">ዐውደ ፀሐይ (Solar Cycle)</span>
+            <span className="text-2xl font-black text-amber-100 font-mono">
+              {calculateAbushakirCycles(result.year).awdeTsehay} / 28
+            </span>
+            <p className="text-[11px] text-stone-400">በየ ፳፰ ዓመቱ ፀሐይ ወደ ነበረችበት ዕለት ትመለሳለች</p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-stone-950/70 border border-amber-500/30 text-center space-y-1">
+            <Moon className="w-6 h-6 text-sky-400 mx-auto mb-1" />
+            <span className="text-xs text-sky-300 font-bold block">ዐውደ ቀመር (Metonic Lunar)</span>
+            <span className="text-2xl font-black text-sky-100 font-mono">
+              {calculateAbushakirCycles(result.year).awdeQemer} / 19
+            </span>
+            <p className="text-[11px] text-stone-400">በየ ፲፱ ዓመቱ የጨረቃ ወራትና ሙላት ይታደሳል</p>
+          </div>
+
+          <div className="p-4 rounded-2xl bg-stone-950/70 border border-amber-500/30 text-center space-y-1">
+            <Compass className="w-6 h-6 text-emerald-400 mx-auto mb-1" />
+            <span className="text-xs text-emerald-300 font-bold block">ዐውደ ማኅተም (Great Cycle)</span>
+            <span className="text-2xl font-black text-emerald-100 font-mono">
+              {calculateAbushakirCycles(result.year).awdeMahtem} / 532
+            </span>
+            <p className="text-[11px] text-stone-400">፳፰ × ፲፱ = ፭፻፴፪ ዓመት፤ ሁሉም በዓላት ወደ ቦታቸው ይመለሳሉ</p>
+          </div>
+        </div>
+
+        {/* Day-Night Hours & Zodiac Signs Across 12 Months */}
+        <div className="pt-4 border-t border-amber-500/20">
+          <h4 className="text-xs font-bold text-amber-300 uppercase tracking-wider mb-3">
+            የ ፲፪ቱ ወራት የቀንና የሌሊት ሰዓታት እና ህብረ-ከዋክብት (Astronomical Constellations)
+          </h4>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2.5">
+            {calculateAbushakirCycles(result.year).dayNightHours.map((dnh, idx) => (
+              <div key={idx} className="p-2.5 rounded-xl bg-stone-900/60 border border-stone-800 text-xs">
+                <div className="flex items-center justify-between font-bold text-amber-200">
+                  <span>{dnh.month}</span>
+                  <span className="text-[11px] font-mono text-amber-400">ቀን፡{dnh.dayHours}ሰ / ሌ፡{dnh.nightHours}ሰ</span>
+                </div>
+                <div className="text-[10px] text-stone-400 mt-1 flex items-center justify-between">
+                  <span>{dnh.astronomicalSign}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Ancient Abushakir Celestial Blessing */}
+        <div className="p-4 rounded-2xl bg-stone-950/80 border border-amber-500/30 space-y-2 mt-4">
+          <div className="flex items-center gap-2">
+            <Shield className="w-4 h-4 text-amber-400" />
+            <h5 className="text-xs font-bold text-amber-200">ጸሎተ አቡሻህር ወዐውደ ፀሐይ (የሰማያት ቡራኬ)</h5>
+          </div>
+          <p className="text-xs font-serif text-stone-200 leading-relaxed">
+            "በስመ አብ ወወልድ ወመንፈስ ቅዱስ አሐዱ አምላክ፤ ዘአስተካከለ ሰዓታተ መዓልት ወሌሊት፤ በ፭፻፴፪ ዓመተ ማኅተም ፍጥረትን የሚያድስ አምላክ ሆይ፤ የዘመኑን ቀመር የተባረከ አድርግልን፤ በፀሐይ መውጣትና በጨረቃ መግባት ሰላምን አብዛልን። አሜን።"
+          </p>
         </div>
       </div>
     </div>

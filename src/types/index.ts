@@ -18,13 +18,46 @@ export interface AncientAsmat {
   id: string;
   title: string;
   geezTitle: string;
-  category: 'ዕቀባና ጥበቃ' | 'ግርማ ሞገስ' | 'መስተፋቅርና ሰላም' | 'ፈውስና ድኅነት' | 'የጥበብ ማስጠንቀቂያ';
-  type: 'protective' | 'majesty' | 'harmony' | 'healing' | 'warning';
+  category:
+    | 'የእስር ድግምት'
+    | 'የፈውስ ድግምት'
+    | 'ዕቀባና ጥበቃ'
+    | 'ግርማ ሞገስ'
+    | 'መስተፋቅርና ሰላም'
+    | 'ፈውስና ድኅነት'
+    | 'የጥበብ ማስጠንቀቂያ'
+    | 'አስማተ ሄኖክ ወመላእክት';
+  type: 'protective' | 'majesty' | 'harmony' | 'healing' | 'binding' | 'warning' | 'angelic';
+  level: 'ቀላል (ጀማሪ)' | 'መካከለኛ' | 'ከባድ (ታላቅ)';
   purpose: string;
   sacredWords: string;
   traditionalContext: string;
   instructions: string;
   ethicalNotice: string;
+}
+
+export interface OtherAncientArt {
+  id: string;
+  title: string;
+  originBook: string;
+  category: 'ፍልስፍና' | 'መርበብተ ሰሎሞን' | 'ቅኔና ዜማ' | 'የብራና ቅመማና ቀለም' | 'የጥንት ኬሚስትሪ';
+  summary: string;
+  principles: string[];
+  sacredTextOrFormula: string;
+  historicalSignificance: string;
+}
+
+export interface AbushakirCycleInfo {
+  awdeTsehay: number;
+  awdeQemer: number;
+  awdeMahtem: number;
+  dayNightHours: {
+    month: string;
+    dayHours: number;
+    nightHours: number;
+    season: string;
+    astronomicalSign: string;
+  }[];
 }
 
 export interface HenokChapter {
